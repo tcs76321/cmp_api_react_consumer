@@ -10,14 +10,13 @@ function App() {
         .then(response => response.json())
         .then(data => console.log(data));
 
-
-    let bodyData = new FormData();
-    bodyData.append("json", JSON.stringify(dataJsonFileAllPass));
-
-    fetch('http://localhost:5000//comprehensive/version1',
-    {
+    fetch('http://localhost:5000/comprehensive/version1', {
         method: "POST",
-        body: bodyData
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataJsonFileAllPass)
     }).then(response => response.json()).then(data => console.log(data));
 
 
