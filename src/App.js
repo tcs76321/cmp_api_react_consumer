@@ -1,22 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
+import {dataJsonFileAllPass} from "./data";
 
 
 
 function App() {
-    // const [results, setResults] = useState([])
-
     fetch('http://localhost:5000/1metabolite/co2/25')
         .then(response => response.json())
         .then(data => console.log(data));
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         setResults(data)
-    //     })
-    //     .catch(function (err) {
-    //         console.log(err);
-    //     });
+
+
+    let bodyData = new FormData();
+    bodyData.append("json", JSON.stringify(dataJsonFileAllPass));
+
+    fetch('http://localhost:5000//comprehensive/version1',
+    {
+        method: "POST",
+        body: bodyData
+    }).then(response => response.json()).then(data => console.log(data));
+
 
   return (
       <div className="App">
