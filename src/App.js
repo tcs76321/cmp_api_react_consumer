@@ -5,16 +5,18 @@ import {useState} from "react";
 
 
 function App() {
-    const [results, setResults] = useState([])
+    // const [results, setResults] = useState([])
 
-    fetch('http://localhost:5000/comp')
+    fetch('http://localhost:5000/1metabolite/co2/25')
         .then(response => response.json())
-        .then(data => {
-            setResults(data)
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
+        .then(data => console.log(data));
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setResults(data)
+    //     })
+    //     .catch(function (err) {
+    //         console.log(err);
+    //     });
 
   return (
       <div className="App">
